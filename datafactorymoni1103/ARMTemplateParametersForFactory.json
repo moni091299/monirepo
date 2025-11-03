@@ -8,13 +8,7 @@
 		"AzureSqlDatabase_link_password": {
 			"value": ""
 		},
-		"Git_src_link_accountKey": {
-			"value": ""
-		},
 		"Output_src_link_adls_accountKey": {
-			"value": ""
-		},
-		"git_sink_link_accountKey": {
 			"value": ""
 		},
 		"input_source_link_adls_accountKey": {
@@ -40,6 +34,9 @@
 		},
 		"input_source_link_adls_properties_typeProperties_url": {
 			"value": "https://modatalake1103.dfs.core.windows.net/"
+		},
+		"AzureKeyVault_properties_typeProperties_baseUrl": {
+			"value": "https://mokeyvault.vault.azure.net/"
 		}
 	}
 }

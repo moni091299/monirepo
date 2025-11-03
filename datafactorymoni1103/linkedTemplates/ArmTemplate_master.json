@@ -11,17 +11,9 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'AzureSqlDatabase_link'"
 		},
-		"Git_src_link_accountKey": {
-			"type": "secureString",
-			"metadata": "Secure string for 'accountKey' of 'Git_src_link'"
-		},
 		"Output_src_link_adls_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'Output_src_link_adls'"
-		},
-		"git_sink_link_accountKey": {
-			"type": "secureString",
-			"metadata": "Secure string for 'accountKey' of 'git_sink_link'"
 		},
 		"input_source_link_adls_accountKey": {
 			"type": "secureString",
@@ -55,6 +47,10 @@
 			"type": "string",
 			"defaultValue": "https://modatalake1103.dfs.core.windows.net/"
 		},
+		"AzureKeyVault_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://mokeyvault.vault.azure.net/"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -85,14 +81,8 @@
 					"AzureSqlDatabase_link_password": {
 						"value": "[parameters('AzureSqlDatabase_link_password')]"
 					},
-					"Git_src_link_accountKey": {
-						"value": "[parameters('Git_src_link_accountKey')]"
-					},
 					"Output_src_link_adls_accountKey": {
 						"value": "[parameters('Output_src_link_adls_accountKey')]"
-					},
-					"git_sink_link_accountKey": {
-						"value": "[parameters('git_sink_link_accountKey')]"
 					},
 					"input_source_link_adls_accountKey": {
 						"value": "[parameters('input_source_link_adls_accountKey')]"
@@ -106,17 +96,20 @@
 					"AzureSqlDatabase_link_properties_typeProperties_userName": {
 						"value": "[parameters('AzureSqlDatabase_link_properties_typeProperties_userName')]"
 					},
-					"Git_src_link_properties_typeProperties_url": {
-						"value": "[parameters('Git_src_link_properties_typeProperties_url')]"
-					},
 					"Output_src_link_adls_properties_typeProperties_url": {
 						"value": "[parameters('Output_src_link_adls_properties_typeProperties_url')]"
 					},
-					"git_sink_link_properties_typeProperties_url": {
-						"value": "[parameters('git_sink_link_properties_typeProperties_url')]"
-					},
 					"input_source_link_adls_properties_typeProperties_url": {
 						"value": "[parameters('input_source_link_adls_properties_typeProperties_url')]"
+					},
+					"AzureKeyVault_properties_typeProperties_baseUrl": {
+						"value": "[parameters('AzureKeyVault_properties_typeProperties_baseUrl')]"
+					},
+					"Git_src_link_properties_typeProperties_url": {
+						"value": "[parameters('Git_src_link_properties_typeProperties_url')]"
+					},
+					"git_sink_link_properties_typeProperties_url": {
+						"value": "[parameters('git_sink_link_properties_typeProperties_url')]"
 					}
 				}
 			},

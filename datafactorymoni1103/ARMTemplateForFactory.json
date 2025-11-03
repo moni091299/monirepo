@@ -11,17 +11,9 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'AzureSqlDatabase_link'"
 		},
-		"Git_src_link_accountKey": {
-			"type": "secureString",
-			"metadata": "Secure string for 'accountKey' of 'Git_src_link'"
-		},
 		"Output_src_link_adls_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'Output_src_link_adls'"
-		},
-		"git_sink_link_accountKey": {
-			"type": "secureString",
-			"metadata": "Secure string for 'accountKey' of 'git_sink_link'"
 		},
 		"input_source_link_adls_accountKey": {
 			"type": "secureString",
@@ -54,6 +46,10 @@
 		"input_source_link_adls_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://modatalake1103.dfs.core.windows.net/"
+		},
+		"AzureKeyVault_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://mokeyvault.vault.azure.net/"
 		}
 	},
 	"variables": {
@@ -507,12 +503,18 @@
 				"typeProperties": {
 					"url": "[parameters('Git_src_link_properties_typeProperties_url')]",
 					"accountKey": {
-						"type": "SecureString",
-						"value": "[parameters('Git_src_link_accountKey')]"
+						"type": "AzureKeyVaultSecret",
+						"store": {
+							"referenceName": "AzureKeyVault",
+							"type": "LinkedServiceReference"
+						},
+						"secretName": "mysecret"
 					}
 				}
 			},
-			"dependsOn": []
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureKeyVault')]"
+			]
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/Output_src_link_adls')]",
@@ -541,12 +543,18 @@
 				"typeProperties": {
 					"url": "[parameters('git_sink_link_properties_typeProperties_url')]",
 					"accountKey": {
-						"type": "SecureString",
-						"value": "[parameters('git_sink_link_accountKey')]"
+						"type": "AzureKeyVaultSecret",
+						"store": {
+							"referenceName": "AzureKeyVault",
+							"type": "LinkedServiceReference"
+						},
+						"secretName": "mysecret"
 					}
 				}
 			},
-			"dependsOn": []
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureKeyVault')]"
+			]
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/input_source_link_adls')]",
@@ -561,6 +569,19 @@
 						"type": "SecureString",
 						"value": "[parameters('input_source_link_adls_accountKey')]"
 					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureKeyVault')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureKeyVault",
+				"typeProperties": {
+					"baseUrl": "[parameters('AzureKeyVault_properties_typeProperties_baseUrl')]"
 				}
 			},
 			"dependsOn": []
