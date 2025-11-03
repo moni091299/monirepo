@@ -1,0 +1,9 @@
+{
+	"name": "datafactorymoni1103",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "a397b888-a8da-4e62-9321-998aefcb7039",
+		"tenantId": "e1217b2a-6d07-4943-a98a-8d8b050fb439"
+	}
+}
