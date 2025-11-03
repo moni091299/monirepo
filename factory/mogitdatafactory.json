@@ -1,0 +1,9 @@
+{
+	"name": "mogitdatafactory",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "f26abf65-7d77-4854-a1f2-df77b847efac",
+		"tenantId": "e1217b2a-6d07-4943-a98a-8d8b050fb439"
+	}
+}
