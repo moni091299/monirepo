@@ -1,0 +1,28 @@
+{
+	"name": "Src_dataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "src_link",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "emp1.csv",
+				"fileSystem": "src"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "FirstName\tLastName\tDepartment\tSalary\tSkill1\tSkill2\tSkill3",
+				"type": "String"
+			}
+		]
+	}
+}
