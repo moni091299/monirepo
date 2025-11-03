@@ -1,0 +1,126 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "datafactorymoni1103"
+		},
+		"AzureSqlDatabase_link_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'AzureSqlDatabase_link'"
+		},
+		"Git_src_link_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'Git_src_link'"
+		},
+		"Output_src_link_adls_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'Output_src_link_adls'"
+		},
+		"git_sink_link_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'git_sink_link'"
+		},
+		"input_source_link_adls_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'input_source_link_adls'"
+		},
+		"AzureSqlDatabase_link_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "monidbserver.database.windows.net"
+		},
+		"AzureSqlDatabase_link_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "monidb"
+		},
+		"AzureSqlDatabase_link_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "sqladmin"
+		},
+		"Git_src_link_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://modatalake1103.dfs.core.windows.net/"
+		},
+		"Output_src_link_adls_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://modatalake1103.dfs.core.windows.net/"
+		},
+		"git_sink_link_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://modatalake1103.dfs.core.windows.net/"
+		},
+		"input_source_link_adls_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://modatalake1103.dfs.core.windows.net/"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "datafactorymoni1103_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureSqlDatabase_link_password": {
+						"value": "[parameters('AzureSqlDatabase_link_password')]"
+					},
+					"Git_src_link_accountKey": {
+						"value": "[parameters('Git_src_link_accountKey')]"
+					},
+					"Output_src_link_adls_accountKey": {
+						"value": "[parameters('Output_src_link_adls_accountKey')]"
+					},
+					"git_sink_link_accountKey": {
+						"value": "[parameters('git_sink_link_accountKey')]"
+					},
+					"input_source_link_adls_accountKey": {
+						"value": "[parameters('input_source_link_adls_accountKey')]"
+					},
+					"AzureSqlDatabase_link_properties_typeProperties_server": {
+						"value": "[parameters('AzureSqlDatabase_link_properties_typeProperties_server')]"
+					},
+					"AzureSqlDatabase_link_properties_typeProperties_database": {
+						"value": "[parameters('AzureSqlDatabase_link_properties_typeProperties_database')]"
+					},
+					"AzureSqlDatabase_link_properties_typeProperties_userName": {
+						"value": "[parameters('AzureSqlDatabase_link_properties_typeProperties_userName')]"
+					},
+					"Git_src_link_properties_typeProperties_url": {
+						"value": "[parameters('Git_src_link_properties_typeProperties_url')]"
+					},
+					"Output_src_link_adls_properties_typeProperties_url": {
+						"value": "[parameters('Output_src_link_adls_properties_typeProperties_url')]"
+					},
+					"git_sink_link_properties_typeProperties_url": {
+						"value": "[parameters('git_sink_link_properties_typeProperties_url')]"
+					},
+					"input_source_link_adls_properties_typeProperties_url": {
+						"value": "[parameters('input_source_link_adls_properties_typeProperties_url')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}

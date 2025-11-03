@@ -1,0 +1,45 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "datafactorymoni1103"
+		},
+		"AzureSqlDatabase_link_password": {
+			"value": ""
+		},
+		"Git_src_link_accountKey": {
+			"value": ""
+		},
+		"Output_src_link_adls_accountKey": {
+			"value": ""
+		},
+		"git_sink_link_accountKey": {
+			"value": ""
+		},
+		"input_source_link_adls_accountKey": {
+			"value": ""
+		},
+		"AzureSqlDatabase_link_properties_typeProperties_server": {
+			"value": "monidbserver.database.windows.net"
+		},
+		"AzureSqlDatabase_link_properties_typeProperties_database": {
+			"value": "monidb"
+		},
+		"AzureSqlDatabase_link_properties_typeProperties_userName": {
+			"value": "sqladmin"
+		},
+		"Git_src_link_properties_typeProperties_url": {
+			"value": "https://modatalake1103.dfs.core.windows.net/"
+		},
+		"Output_src_link_adls_properties_typeProperties_url": {
+			"value": "https://modatalake1103.dfs.core.windows.net/"
+		},
+		"git_sink_link_properties_typeProperties_url": {
+			"value": "https://modatalake1103.dfs.core.windows.net/"
+		},
+		"input_source_link_adls_properties_typeProperties_url": {
+			"value": "https://modatalake1103.dfs.core.windows.net/"
+		}
+	}
+}
